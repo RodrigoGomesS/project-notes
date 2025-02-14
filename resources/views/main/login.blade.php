@@ -2,10 +2,12 @@
 
 @section('content')
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900 dark:text-gray-200">Sign in to
                 your account</h2>
         </div>
+
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
                 <form class="space-y-6" action="/loginSubmit" method="post">
@@ -17,7 +19,7 @@
                             <input type="email" name="text_username" id="email"
                                 class="block w-full rounded-md bg-white dark:bg-gray-700 px-3 py-1.5 text-base text-gray-900 dark:text-gray-200 outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                                 value="{{ old('text_username') }}" required>
-                            
+
                             @error('text_username')
                                 <div class="text-red-600">{{ $message }}</div>
                             @enderror
@@ -28,10 +30,10 @@
                         <label for="text_password"
                             class="block text-sm/6 font-medium text-gray-900 dark:text-gray-200">Password</label>
                         <div class="mt-2">
-                            <input type="password" name="text_password" id="password"
-                                value="{{ old('text_password') }}" required
+                            <input type="password" name="text_password" id="password" value="{{ old('text_password') }}"
+                                required
                                 class="block w-full rounded-md bg-white dark:bg-gray-700 px-3 py-1.5 text-base text-gray-900 dark:text-gray-200 outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
-                            
+
                             @error('text_password')
                                 <div class="text-red-600">{{ $message }}</div>
                             @enderror
@@ -43,9 +45,9 @@
                             class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">LOGIN</button>
                     </div>
                 </form>
-                {{-- invalid login --}}
+
                 @if (session('loginError'))
-                    <div class="alert alert-danger text-center">
+                    <div class="text-center text-red-600">
                         {{ session('loginError') }}
                     </div>
                 @endif
@@ -55,5 +57,6 @@
                 </div>
             </div>
         </div>
+        
     </div>
 @endsection

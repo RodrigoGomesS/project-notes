@@ -45,11 +45,13 @@ class AuthController extends Controller
         $user->save();
 
         session([
-            'user' =>[
+            'user' => [
                 'id' => $user->id,
                 'username' => $user->username,
             ]
         ]);
+
+        return redirect()->to('/');
     }
 
     public function login()

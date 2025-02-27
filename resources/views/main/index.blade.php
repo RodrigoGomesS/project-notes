@@ -7,7 +7,7 @@
                     <div class="flex justify-center mt-5">
                         <div class="text-center">
                             <p class="text-4xl mb-5 text-gray-400 opacity-50">You have no notes available!</p>
-                            <a href="{{ route('new') }}"
+                            <a href="{{ route('create') }}"
                                 class="bg-gray-500 text-white text-lg py-3 px-5 rounded-lg inline-flex items-center">
                                 <i class="fa-regular fa-pen-to-square mr-3"></i>Create Your First Note
                             </a>
@@ -15,7 +15,7 @@
                     </div>
                 @else
                     <div class="flex justify-end mb-3">
-                        <a href="{{ route('new') }}"
+                        <a href="{{ route('create') }}"
                             class="bg-gray-500 text-white px-3 py-2 rounded-md inline-flex items-center">
                             <i class="fa-regular fa-pen-to-square mr-2"></i>New Note
                         </a>

@@ -11,11 +11,11 @@
                 </small>
             </div>
             <div class="flex space-x-2">
-                <a href="/edit/{{ Crypt::encrypt($note['id']) }}"
+                <a href="{{ route('edit', ['id' => Crypt::encrypt($note['id'])]) }}"
                     class="border border-gray-500 text-gray-500 px-2 py-1 rounded dark:border-gray-400 dark:text-gray-300">
                     <i class="fa-regular fa-pen-to-square"></i>
                 </a>
-                <a href="/delete/{{ Crypt::encrypt($note['id']) }}"
+                <a href="{{ route('delete', ['id' => Crypt::encrypt($note['id'])]) }}"
                     class="border border-red-500 text-red-500 px-2 py-1 rounded dark:border-red-400 dark:text-red-300">
                     <i class="fa-regular fa-trash-can"></i>
                 </a>

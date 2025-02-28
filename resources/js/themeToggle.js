@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         localStorage.setItem("theme", isDark ? "dark" : "light");
 
-        // Atualiza UI
         updateToggleUI(isDark);
     }
 

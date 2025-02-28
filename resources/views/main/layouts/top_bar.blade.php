@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center space-x-6">
         <div class="flex-shrink-0">
             <a href="{{ route('home') }}">
-                <img class="h-12 w-auto" src="assets/images/logo.png" alt="Notes logo">
+                <img class="h-12 w-auto" src="{{ asset('assets/images/logo.png') }}" alt="Notes logo">
             </a>
         </div>
         <div class="flex-1 text-center text-gray-700 dark:text-gray-300 text-lg">

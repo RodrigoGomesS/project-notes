@@ -3,12 +3,22 @@
         <div class="flex justify-between items-center">
             <div>
                 <h4 class="text-xl font-semibold text-blue-500 dark:text-blue-400">{{ $note['title'] }}</h4>
-                <small class="text-gray-500 dark:text-gray-400">
-                    <span class="opacity-75 mr-2">
+                <small class="text-gray-500 dark:text-gray-400 mr-5">
+                    <span class="opacity-75 mr-1">
                         Created at:
                     </span>
                     <strong>{{ date('Y-m-d H:i:s', strtotime($note['created_at'])) }}</strong>
                 </small>
+
+                @if ($note['created_at'] != $note['updated_at'])
+                    <small class="text-gray-500 dark:text-gray-400">
+                        <span class="opacity-75 mr-1">
+                            Updated at:
+                        </span>
+                        <strong>{{ date('Y-m-d H:i:s', strtotime($note['updated_at'])) }}</strong>
+                    </small>
+                @endif
+
             </div>
             <div class="flex space-x-2">
                 <a href="{{ route('edit', ['id' => Crypt::encrypt($note['id'])]) }}"

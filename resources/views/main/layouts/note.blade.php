@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1">
+<div class="grid grid-cols-1 mb-5">
     <div class="p-4 bg-white shadow rounded-lg dark:bg-gray-800 dark:text-gray-200">
         <div class="flex justify-between items-center">
             <div>

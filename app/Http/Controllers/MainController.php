@@ -13,7 +13,11 @@ class MainController extends Controller
     {
 
         $id = session('user.id');
-        $notes = User::find($id)->notes()->get()->toArray();
+        $notes = User::find($id)
+            ->notes()
+            ->WhereNull('deleted_at')
+            ->get()
+            ->toArray();
 
         return view('main/index', ['notes' => $notes]);
     }
@@ -73,7 +77,7 @@ class MainController extends Controller
         if ($request->note_id == null) {
             return redirect()->route('home');
         }
-        
+
         $id = Operations::decryptId($request->note_id);
         $note = Note::find($id);
         $note->title = $request->text_title;
@@ -86,6 +90,17 @@ class MainController extends Controller
     public function delete($id)
     {
         $id = Operations::decryptId($id);
+
+        $note = Note::find($id);
+
+        return view('main/delete_note', ['note' => $note]);
+    }
+
+    public function deleteConfirm($id)
+    {
+        $id = Operations::decryptId($id);
+        $note = Note::find($id);
+        $note->delete();
 
         return redirect()->route('home');
     }

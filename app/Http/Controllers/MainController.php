@@ -55,6 +55,11 @@ class MainController extends Controller
     public function edit($id)
     {
         $id = Operations::decryptId($id);
+
+        if ($id == null) {
+            return redirect()->route('home');
+        }
+
         $note = Note::find($id);
 
         return view('main/edit_note', ['note' => $note]);
@@ -79,6 +84,11 @@ class MainController extends Controller
         }
 
         $id = Operations::decryptId($request->note_id);
+
+        if ($id == null) {
+            return redirect()->route('home');
+        }
+
         $note = Note::find($id);
         $note->title = $request->text_title;
         $note->text = $request->text_note;
@@ -91,6 +101,10 @@ class MainController extends Controller
     {
         $id = Operations::decryptId($id);
 
+        if ($id == null) {
+            return redirect()->route('home');
+        }
+
         $note = Note::find($id);
 
         return view('main/delete_note', ['note' => $note]);
@@ -99,6 +113,11 @@ class MainController extends Controller
     public function deleteConfirm($id)
     {
         $id = Operations::decryptId($id);
+
+        if ($id == null) {
+            return redirect()->route('home');
+        }
+        
         $note = Note::find($id);
         $note->delete();
 
